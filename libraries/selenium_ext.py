@@ -4,10 +4,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import ElementClickInterceptedException
 
-class selenium_ext:
+class SeleniumExt:
     """
     Extensión de Selenium para flujos complejos.
     """
+
+    ROBOT_LIBRARY_SCOPE = 'TEST SUITE'
 
     def __init__(self):
         # Accedemos a la instancia activa de SeleniumLibrary en Robot
@@ -52,3 +54,6 @@ class selenium_ext:
         """Útil para campos de texto protegidos o con formatos especiales."""
         element = self.sel_lib.find_element(locator)
         return self.driver.execute_script("return arguments[0].value;", element)
+
+# Alias para cumplir con el requerimiento de importación de Robot Framework sin renombrar la clase
+selenium_ext = SeleniumExt

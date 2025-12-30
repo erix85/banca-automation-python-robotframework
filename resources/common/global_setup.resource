@@ -2,7 +2,8 @@
 Library    SeleniumLibrary
 Library    ../../libraries/selenium_ext.py
 Library    ../../libraries/reader_utils.py
-Library    ../../config/driver_config.py    env_name=${ENV}    WITH NAME    ConfigManager
+Library    ../../libraries/DataLoader.py
+Library    ../../libraries/BrowserSetup.py
 
 *** Variables ***
 ${ENV}    qa  # Valor por defecto
@@ -10,10 +11,9 @@ ${ENV}    qa  # Valor por defecto
 *** Keywords ***
 Setup Del Proyecto
     [Documentation]    Inicializa driver, carga datos y configura logs.
-    ${driver}=    ConfigManager.Get Driver Instance
-    # Cargamos datos de prueba globales desde un JSON
-    ${TEST_DATA}=    Read JSON Data    ${CURDIR}/../../resources/variables/test_data.json
-    Set Global Variable    ${GLOBAL_DATA}    ${TEST_DATA}
+    Open Configured Browser    ${ENV}
+    # Cargamos datos de prueba globales desde el YAML
+    Load Test Data    ${CURDIR}/../../resources/variables/test_data.yaml
     
     Log    Iniciando pruebas en entorno: ${ENV}    console=True
 

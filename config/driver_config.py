@@ -1,4 +1,5 @@
 import yaml
+import os
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.firefox.service import Service as FirefoxService
@@ -10,7 +11,11 @@ from webdriver_manager.microsoft import EdgeChromiumDriverManager, IEDriverManag
 
 class DriverConfig:
     def __init__(self, env_name="local"):
-        with open('config/settings.yaml', 'r') as f:
+        # Construimos la ruta absoluta al archivo settings.yaml
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        config_path = os.path.join(base_dir, 'config', 'settings.yaml')
+        
+        with open(config_path, 'r') as f:
             full_config = yaml.safe_load(f)
         self.config = full_config['environments'][env_name]
         self.defaults = full_config['default']
