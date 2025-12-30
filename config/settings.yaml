@@ -1,0 +1,51 @@
+# Configuración Maestra
+default:
+  timeout: 20
+  implicit_wait: 5
+  screenshot_on_failure: true
+
+environments:
+  local:
+    base_url: "http://localhost:8080"
+    execution_type: "local"  # local | grid | manual
+    browser: "chrome"
+    headless: false
+
+  local_firefox:
+    base_url: "http://localhost:8080"
+    execution_type: "local"
+    browser: "firefox"
+    headless: false
+
+  local_edge:
+    base_url: "http://localhost:8080"
+    execution_type: "local"
+    browser: "edge"
+    headless: false
+
+  local_brave:
+    base_url: "http://localhost:8080"
+    execution_type: "local"
+    browser: "brave"
+    binary_path: "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe" # Ajustar ruta según tu instalación
+    headless: false
+
+  local_opera:
+    base_url: "http://localhost:8080"
+    execution_type: "local"
+    browser: "opera"
+    binary_path: "C:/Users/TuUsuario/AppData/Local/Programs/Opera/opera.exe" # Ajustar ruta según tu instalación
+    headless: false
+
+  qa_grid:
+    base_url: "https://qa-banca.tuempresa.com"
+    execution_type: "grid"
+    grid_url: "http://192.168.1.100:4444/wd/hub"
+    browser: "chrome"
+    headless: true
+
+  manual:
+    # Para cuando tienes el binario específico en la carpeta /drivers
+    execution_type: "manual"
+    driver_path: "C:/portafolio_profesional/banca-automation-python-robotframework/drivers/chromedriver.exe"
+    base_url: "https://dev-banca.com"

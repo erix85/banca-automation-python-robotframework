@@ -1,0 +1,7 @@
+login:
+  username: "name:username"
+  password: "name:password"
+  submit_btn: "xpath://button[@type='submit']"
+
+dashboard:
+  header: "xpath://h6[text()='Dashboard']"

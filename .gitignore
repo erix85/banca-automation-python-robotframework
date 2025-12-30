@@ -1,0 +1,27 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# --- Robot Framework ---
+# Resultados de ejecución (output.xml, log.html, report.html)
+results/
+allure-results/
+report.html
+log.html
+output.xml
+
+# --- Evidencias ---
+*.png
+*.jpg
+*.mp4
+
+# --- IDEs ---
+.vscode/
+.idea/
+
+# --- Drivers (Si los descargas manualmente) ---
+drivers/
+*.exe
