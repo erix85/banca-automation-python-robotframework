@@ -1,5 +1,6 @@
 # Configuración Maestra
 default:
+  base_url: "https://opensource-demo.orangehrmlive.com/"
   timeout: 20
   implicit_wait: 5
   screenshot_on_failure: true
@@ -38,14 +39,17 @@ environments:
     headless: false
 
   qa_grid:
-    base_url: "https://qa-banca.tuempresa.com"
     execution_type: "grid"
     grid_url: "http://192.168.1.100:4444/wd/hub"
     browser: "chrome"
     headless: true
 
+  qa:
+    # Este entorno hereda la base_url por defecto
+    browser: "chrome"
+    headless: false
+
   manual:
     # Para cuando tienes el binario específico en la carpeta /drivers
     execution_type: "manual"
     driver_path: "C:/portafolio_profesional/banca-automation-python-robotframework/drivers/chromedriver.exe"
-    base_url: "https://dev-banca.com"

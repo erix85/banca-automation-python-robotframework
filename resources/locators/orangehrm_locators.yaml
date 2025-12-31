@@ -1,7 +1,31 @@
 login:
   username: "name:username"
   password: "name:password"
-  submit_btn: "xpath://button[@type='submit']"
+  submit_btn: "xpath://button[contains(@class, 'orangehrm-login-button')]"
 
+# Elemento para verificar el login exitoso. Mas robusto que el header.
 dashboard:
-  header: "xpath://h6[text()='Dashboard']"
+  user_dropdown: "class:oxd-userdropdown-tab"
+
+pim:
+  menu_item: "xpath://a[contains(@href, '/web/index.php/pim/viewPimModule')]"
+  add_employee_link: "xpath://a[text()='Add Employee']"
+  first_name_input: "name:firstName"
+  middle_name_input: "name:middleName"
+  last_name_input: "name:lastName"
+  create_login_switch: "xpath://div[contains(@class, 'oxd-switch-wrapper')]"
+  username_input: "xpath://label[normalize-space()='Username']/../following-sibling::div//input"
+  password_input: "xpath://label[normalize-space()='Password']/../following-sibling::div//input"
+  confirm_password_input: "xpath://label[normalize-space()='Confirm Password']/../following-sibling::div//input"
+  save_btn: "xpath://button[@type='submit' and normalize-space()='Save']"
+  success_toast: "xpath://div[contains(@class, 'oxd-toast-content')]"
+
+logout:
+  user_dropdown: "class:oxd-userdropdown-tab"
+  logout_link: "xpath://a[text()='Logout']"
+
+pim_search:
+  employee_list_link: "xpath://a[text()='Employee List']"
+  employee_name_input: "xpath:(//input[@placeholder='Type for hints...'])[1]"
+  search_btn: "xpath://button[@type='submit' and normalize-space()='Search']"
+  records_table: "class:oxd-table-body"
